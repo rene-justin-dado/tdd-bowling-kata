@@ -2,9 +2,9 @@ module.exports = {
   scoreFrame: scoreFrame
 }
 
-// var frame = ([7, 3], [3, 5])
-// var expected = 13
 function scoreFrame (frame1, frame2) {
+  if (frame1[0] + frame1[1] === 10 && frame1[0] < 10) {
+    return frame1[0] + frame1[1] + frame2[0]
+  }
   return frame1[0] + frame1[1]
-  
 }
