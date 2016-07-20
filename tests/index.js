@@ -34,7 +34,20 @@ test('scores a normal frame', function (t) {
 
 test('scores a spare frame', function (t) {
   //Arrange
-  var frame = [7, 3]
+  var frame = ([7, 3], [3, 5])
+  var expected = 10
+
+  //Act
+  var actual = game.scoreFrame(frame)
+
+  //Assert
+  t.equal(actual, expected)
+  t.end()
+})
+
+test('scores a single strike frame', function (t) {
+  //Arrange
+  var frame= ([10, 0], [7, 2])
   var expected = 10
 
   //Act
