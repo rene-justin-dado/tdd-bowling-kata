@@ -7,9 +7,27 @@ test('initial', function (t) {
 })
 
 test('scores a gutterball frame', function (t) {
+  //Arrange
   var frame = [0, 0]
   var expected = 0
+
+  //Act
   var actual = game.scoreFrame(frame)
+
+  //Assert
+  t.equal(actual, expected)
+  t.end()
+})
+
+test('scores a normal frame', function (t) {
+  //Arrange
+  var frame = [2, 3]
+  var expected = 5
+
+  //Act
+  var actual = game.scoreFrame(frame)
+
+  //Assert
   t.equal(actual, expected)
   t.end()
 })
