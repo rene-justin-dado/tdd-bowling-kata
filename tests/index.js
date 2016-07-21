@@ -75,6 +75,20 @@ test ('scores a double strike frame', function (t) {
   t.end()
 })
 
+test('checks for strikes', function (t) {
+  var frame1 = [10, 0]
+  var frame2 = [4, 4]
+  var expected1 = true
+  var expected2 = false
+
+  var actual1 = game.isStrike(frame1)
+  var actual2 = game.isStrike(frame2)
+
+  t.equal(actual1, expected1)
+  t.equal(actual2, expected2)
+  t.end()
+})
+
 test ('scores a game', function(t) {
   //Arrange
   var frames = [[10, 0], [10, 0], [7, 0], [3, 2], [1, 9], [4, 6], [5, 3], [0, 8], [0, 0]]
