@@ -6,9 +6,18 @@ module.exports = {
   isSpare: isSpare
 }
 
-
 function scoreGame (frames) {
-
+  var score = 0
+  var i = 0
+  while (i < frames.length) {
+    if (isStrike(frames[i]) || isSpare(frames[i])) {
+      score += scoreSpecial(frames[i], frames[i + 1], frames[i + 2])
+    } else {
+      score += scoreFrame(frames[i])
+    }
+    i++
+  }
+  return score
 }
 
 function isStrike(frame) {
@@ -25,7 +34,7 @@ function scoreFrame (frame) {
 }
 
 function scoreSpecial (frame1, frame2, frame3) {
-  //Double Strike
+  //Multi Strike
   if (isStrike(frame1) && isStrike(frame2)) {
     return frame1[0] + frame2[0] + frame3[0] + frame3[1]
   }

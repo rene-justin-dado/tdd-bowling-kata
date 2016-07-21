@@ -105,8 +105,8 @@ test('checks for spares', function (t) {
 
 test ('scores a game', function(t) {
   //Arrange
-  var frames = [[10, 0], [10, 0], [7, 0], [3, 2], [1, 9], [4, 6], [5, 3], [0, 8], [0, 0]]
-  var expected = 93
+  var frames = [[10, 0], [10, 0], [7, 0], [3, 2], [1, 9], [4, 6], [5, 3], [0, 8], [0, 0], [0, 0]]
+  var expected = 101
 
   //Act
   var actual= game.scoreGame(frames)
