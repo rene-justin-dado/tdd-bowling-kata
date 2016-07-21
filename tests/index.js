@@ -68,7 +68,7 @@ test ('scores a double strike frame', function (t) {
   var expected = 27
 
   //Act
-  var actual = game.scoreFrame(frame1, frame2)
+  var actual = game.scoreFrame(frame1, frame2, frame3)
 
   //Assert
   t.equal(actual, expected)
