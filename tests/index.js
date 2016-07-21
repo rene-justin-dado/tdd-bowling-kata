@@ -105,13 +105,34 @@ test('checks for spares', function (t) {
 
 test ('scores a game', function(t) {
   //Arrange
-  var frames = [[10, 0], [10, 0], [7, 0], [3, 2], [1, 9], [4, 6], [5, 3], [0, 8], [0, 0], [0, 0]]
-  var expected = 101
+  var frames = [[10, 0], [10, 0], [10, 0], [3, 2], [1, 9], [4, 6], [5, 3], [0, 8], [0, 0], [0, 0]]
+  var expected = 118
 
   //Act
   var actual= game.scoreGame(frames)
 
   //Assert
   t.equal(actual, expected)
+  t.end()
+})
+
+test('scores a strike in the 10th frame', function (t) {
+  var framesStrike = [[10, 0], [10, 0], [10, 0], [3, 2], [1, 9], [4, 6], [5, 3], [0, 8], [0, 0], [10, 10, 9]]
+
+  var expected = 147
+
+  var actual = game.scoreGame(framesStrike)
+
+  t.equal(actual, expected)
+  t.end()
+})
+test('scores a spare in the 10th frame', function (t) {
+  var framesSpare = [[10, 0], [10, 0], [10, 0], [3, 2], [1, 9], [4, 6], [5, 3], [0, 8], [0, 0], [4, 6, 10]]
+
+  var expected = 138
+
+  var actual = game.scoreGame(framesSpare)
+
+  t.equal (actual, expected)
   t.end()
 })
