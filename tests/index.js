@@ -89,6 +89,20 @@ test('checks for strikes', function (t) {
   t.end()
 })
 
+test('checks for spares', function (t) {
+  var frame1 = [6, 4]
+  var frame2 = [7, 2]
+  var expected1 = true
+  var expected2 = false
+
+  var actual1 = game.isSpare(frame1)
+  var actual2 = game.isSpare(frame2)
+
+  t.equal(actual1, expected1)
+  t.equal(actual2, expected2)
+  t.end()
+})
+
 test ('scores a game', function(t) {
   //Arrange
   var frames = [[10, 0], [10, 0], [7, 0], [3, 2], [1, 9], [4, 6], [5, 3], [0, 8], [0, 0]]

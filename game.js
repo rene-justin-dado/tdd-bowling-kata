@@ -2,7 +2,8 @@ module.exports = {
   scoreFrame: scoreFrame,
   scoreSpecial: scoreSpecial,
   scoreGame: scoreGame,
-  isStrike: isStrike
+  isStrike: isStrike,
+  isSpare: isSpare
 }
 
 
@@ -11,11 +12,11 @@ function scoreGame (frames) {
 }
 
 function isStrike(frame) {
-
+  return frame[0] === 10
 }
 
-function isSpare() {
-
+function isSpare(frame1, frame2, frame3) {
+  return (frame1[0] + frame1[1] === 10 && frame1[0] < 10)
 }
 
 function scoreFrame (frame) {
