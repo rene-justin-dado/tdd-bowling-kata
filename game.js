@@ -15,8 +15,8 @@ function isStrike(frame) {
   return frame[0] === 10
 }
 
-function isSpare(frame1, frame2, frame3) {
-  return (frame1[0] + frame1[1] === 10 && frame1[0] < 10)
+function isSpare(frame) {
+  return (frame[0] + frame[1] === 10 && frame[0] < 10)
 }
 
 function scoreFrame (frame) {
@@ -26,15 +26,15 @@ function scoreFrame (frame) {
 
 function scoreSpecial (frame1, frame2, frame3) {
   //Double Strike
-  if (frame1[0] === 10 && frame2[0] === 10) {
+  if (isStrike(frame1) && isStrike(frame2)) {
     return frame1[0] + frame2[0] + frame3[0] + frame3[1]
   }
   //Single Strike
-  if (frame1[0] === 10) {
+  if (isStrike(frame1)) {
     return frame1[0] + frame2[0] + frame2[1]
   }
   //Spare
-  if (frame1[0] + frame1[1] === 10 && frame1[0] < 10) {
+  if (isSpare(frame1)) {
     return frame1[0] + frame1[1] + frame2[0]
   }
 }
