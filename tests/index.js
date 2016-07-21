@@ -39,7 +39,7 @@ test('scores a spare frame', function (t) {
   var expected = 13
 
   //Act
-  var actual = game.scoreFrame(frame1, frame2)
+  var actual = game.scoreSpecial(frame1, frame2)
 
   //Assert
   t.equal(actual, expected)
@@ -53,7 +53,7 @@ test('scores a single strike frame', function (t) {
   var expected = 19
 
   //Act
-  var actual = game.scoreFrame(frame1, frame2)
+  var actual = game.scoreSpecial(frame1, frame2)
 
   //Assert
   t.equal(actual, expected)
@@ -68,7 +68,20 @@ test ('scores a double strike frame', function (t) {
   var expected = 27
 
   //Act
-  var actual = game.scoreFrame(frame1, frame2, frame3)
+  var actual = game.scoreSpecial(frame1, frame2, frame3)
+
+  //Assert
+  t.equal(actual, expected)
+  t.end()
+})
+
+test ('scores a game', function(t) {
+  //Arrange
+  var frames = [[10, 0], [10, 0], [7, 0], [3, 2], [1, 9], [4, 6], [5, 3], [0, 8], [0, 0]]
+  var expected = 93
+
+  //Act
+  var actual= game.scoreGame(frames)
 
   //Assert
   t.equal(actual, expected)
